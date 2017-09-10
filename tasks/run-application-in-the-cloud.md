@@ -3,6 +3,11 @@
 We need to create docker images of our application and store the built docker images in the Container Registry. 
 Then we need to create deployments to Google Cloud. 
 
+Up to this point we have used the Google Cloud Console in the browser.
+Now we will interact with Google Cloud by using the command line tool `gcloud`
+in the terminal shell on our machines.
+The command line tool and the interface in your browser does the same tings, most of the time.
+
 ## 5.1 Docker Images in the cloud
 
 ### 5.1.1 Push your Docker Images to the cloud
@@ -24,6 +29,12 @@ You can add additional tags to your build by pressing the edit button under the 
 
 
 ### X.X (TODO) Release Application
+
+Before we start deploying our application we need to specify what cluster we want to deploy our application to.
+We do this using this command:
+```
+gcloud container clusters get-credentials cv-cluster
+```
 
 To deploy the application we need to create a service for both the backend and the frontend.
 We will also need deployments. The deployments will create pods that run our docker images containing our applications.
