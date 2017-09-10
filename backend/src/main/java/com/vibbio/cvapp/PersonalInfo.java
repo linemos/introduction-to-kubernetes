@@ -1,8 +1,10 @@
 package com.vibbio.cvapp;
 
-class PersonalInfo {
-    private final String name;
-    private final String location;
+public class PersonalInfo {
+    private String name;
+    private String location;
+
+    public PersonalInfo() {}
 
     public PersonalInfo(String name, String location) {
         this.name = name;

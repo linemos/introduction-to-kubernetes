@@ -3,3 +3,4 @@
 /frontend/node_modules
 *.iml
 *.xml
+/backend/cv-app.iml

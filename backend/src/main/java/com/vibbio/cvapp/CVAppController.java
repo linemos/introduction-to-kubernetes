@@ -1,61 +1,116 @@
 package com.vibbio.cvapp;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.List;
+
+@Path("/")
 public class CVAppController {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+    ObjectMapper mapper = new ObjectMapper();
 
-    @RequestMapping(value = "/me")
-    public
-    @ResponseBody
-    PersonalInfo getMe() {
-        String query = "SELECT name, location from personal";
 
-        return jdbcTemplate.queryForObject(query, (resultSet, i) -> {
-            return new PersonalInfo(resultSet.getString(1), resultSet.getString(2));
-        });
-
+    public CVAppController(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
-    @RequestMapping(value = "/work")
-    public
-    @ResponseBody
-    WorkInfo getWork() {
-        String query = "SELECT from_year, to_year, place, comment" +
-                " from work where  = ";
 
-        return jdbcTemplate.queryForObject(query, (resultSet, i) -> {
+    @GET
+    @Path("/me")
+    public Response getMe() throws JsonProcessingException {
+        String query = "SELECT * from personal";
+
+        PersonalInfo personalInfo=  jdbcTemplate.queryForObject(query, (resultSet, i) -> {
+            return new PersonalInfo(resultSet.getString("name"), resultSet.getString("location"));
+        });
+
+        return Response.ok(mapper.writeValueAsString(personalInfo)).build();
+    }
+
+    @POST
+    @Path("/me")
+    public Response postMe(String json) throws IOException {
+        String query = "INSERT INTO personal (name, location) VALUES (?,?)";
+
+        PersonalInfo personalInfo = mapper.readValue(json, PersonalInfo.class);
+        jdbcTemplate.update(query, personalInfo.getName(), personalInfo.getLocation());
+
+        return Response.noContent().build();
+    }
+
+
+    @GET
+    @Path("/work")
+    public Response getWork() throws JsonProcessingException {
+        String query = "SELECT * from work";
+
+        List<WorkInfo> workInfo = jdbcTemplate.query(query, (resultSet, i) -> {
             return new WorkInfo(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4));
+                    resultSet.getString("from_year"),
+                    resultSet.getString("to_year"),
+                    resultSet.getString("place"),
+                    resultSet.getString("comment"));
         });
 
+        return Response.ok(mapper.writeValueAsString(workInfo)).build();
     }
 
-    @RequestMapping(value = "/education")
-    public
-    @ResponseBody
-    EducationlInfo getEducation() {
-        String query = "SELECT first_name, last_name, age" +
-                " from person where person.id = ";
 
-        return jdbcTemplate.queryForObject(query, (resultSet, i) -> {
+
+    @POST
+    @Path("/work")
+    public Response postWork(String json) throws IOException {
+        String query = "INSERT INTO work (place, comment, from_year, to_year) VALUES (?,?,?,?)";
+
+        WorkInfo workInfo = mapper.readValue(json, WorkInfo.class);
+
+        jdbcTemplate.update(
+                query,
+                workInfo.getPlace(),
+                workInfo.getComment(),
+                workInfo.getYearFrom(),
+                workInfo.getYearTo());
+
+        return Response.noContent().build();
+    }
+
+    @GET
+    @Path("/education")
+    public Response getEducation() throws JsonProcessingException {
+        String query = "SELECT * from education";
+
+        List<EducationlInfo> educationlInfo = jdbcTemplate.query(query, (resultSet, i) -> {
             return new EducationlInfo(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4)
-                    );
+                    resultSet.getString("from_year"),
+                    resultSet.getString("to_year"),
+                    resultSet.getString("place"),
+                    resultSet.getString("comment"));
         });
+        return Response.ok(mapper.writeValueAsString(educationlInfo)).build();
+    }
 
+    @POST
+    @Path("/education")
+    public Response postEducation(String json) throws IOException {
+        String query = "INSERT INTO education (place, comment, from_year, to_year) VALUES (?,?,?,?)";
+
+        EducationlInfo educationlInfo = mapper.readValue(json, EducationlInfo.class);
+
+        jdbcTemplate.update(
+                query,
+                educationlInfo.getPlace(),
+                educationlInfo.getComment(),
+                educationlInfo.getYearFrom(),
+                educationlInfo.getYearTo());
+
+        return Response.noContent().build();
     }
 }

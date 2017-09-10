@@ -1,10 +1,12 @@
 package com.vibbio.cvapp;
 
 public class EducationlInfo {
-    private final String yearFrom;
-    private final String yearTo;
-    private final String place;
-    private final String comment;
+    private String yearFrom;
+    private String yearTo;
+    private String place;
+    private String comment;
+
+    public EducationlInfo() {}
 
     public EducationlInfo(String yearFrom, String yearTo, String place, String comment) {
         this.yearFrom = yearFrom;
