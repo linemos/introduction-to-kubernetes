@@ -25,19 +25,26 @@ You can add additional tags to your build by pressing the edit button under the 
 
 ### X.X (TODO) Release Application
 
-We need to create a 
+To deploy the application we need to create a service for both the backend and the frontend.
+We will also need deployments. The deployments will create pods that run our docker images containing our applications.
+The service will receive requests and direct them to its pods.
 
 #### Backend
+Deploy our backend to Google Cloud Container Engine:
+```
+kubectl create -f kubernetes-deployment/backend/service.yaml
+kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.yaml
+```
 
 #### Frontend
-
-Check that your application is online by 
-
-
-
+Deploy our frontend to Google Cloud Container Engine:
+```
+kubectl create -f kubernetes-deployment/frontend/service.yaml
+kubectl create --save-config=true -f kubernetes-deployment/frontend/deployment.yaml
+```
 
 ## Status of the cloud
-Check that the cluster is up and running. 
+Check that the cluster is up and running, without any error status.
 
 **View all pods**
 `kubectl get pods`
@@ -48,3 +55,16 @@ Check that the cluster is up and running.
 **View status of service**
 `kubectl get services [service-name]`
 
+### Ingress
+Now that we have our services, deployments and pods running, all thats missing is a way to expose our app to the internet!
+We do that by creating an ingress:
+```
+kubectl create -f kubernetes-deployment/ingress.yaml
+```
+
+This prossess will take some time, but when we get an external IP, we can view our app in the browser.
+Wait for the external IP to be allocated by running:
+```
+kubectl get ingress --watch
+```
+When an address shows up, paste it in your browser to take a look at your awesome CV!
