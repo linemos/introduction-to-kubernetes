@@ -2,15 +2,15 @@ import React from 'react';
 import PT from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 
-const ContactInformation = ({ }) => {
-    const name = 'Line';
-    const location = 'Oslo';
-
+const ContactInformation = ({ contactInformation }) => {
+    if (!contactInformation) {
+        return <noscript />;
+    }
     return (
         <Row className="contact-information">
             <Col xs="6">
-                <p><b>Name: </b>{name}</p>
-                <p><b>Location: </b>{location}</p>
+                <p><b>Name: </b>{contactInformation.name}</p>
+                <p><b>Location: </b>{contactInformation.location}</p>
             </Col>
             <Col xs="6">
                 <img

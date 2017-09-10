@@ -1,4 +1,4 @@
-# Set up and installation
+# Task 1: Set up and installation
 
 - Install an editor that you want to want to use for coding. 
 - Install Java SDK: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html

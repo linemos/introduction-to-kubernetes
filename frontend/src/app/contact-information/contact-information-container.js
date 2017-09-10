@@ -6,11 +6,10 @@ import { getContactInformation } from '../../ducks/contact-information';
 
 class ContactInformationContainer extends Component {
     componentWillMount() {
-        console.log('getContactInformation');
         this.props.getContactInformation();
     }
     render() {
-        return <ContactInformation />;
+        return <ContactInformation {...this.props} />;
     }
 }
 

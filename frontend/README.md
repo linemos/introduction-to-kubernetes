@@ -1,6 +1,6 @@
-# Introduction to Kubernetes
+# About frontend
 
-This is the frontend of our CV application, and is based on React [Create-app](https://github.com/facebookincubator/create-react-app). 
+This is the frontend of our CV application, and is based on [React Create-app](https://github.com/facebookincubator/create-react-app). 
 
 ## Start the application
  - Install all packages with `npm i ` (inside this folder)

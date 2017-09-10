@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import { getConfig } from './utils';
 
 const GET_CONTACT_INFORMATION_SUCCESS = 'GET_CONTACT_INFORMATION_SUCCESS';
 
@@ -11,24 +12,19 @@ export default function reducer(state = {}, action) {
     }
 }
 
-const config = {
-    method: 'GET',
-    credentials: 'same-origin'
-};
-
 export const getContactInformation = () =>
     dispatch =>
-        fetch('/api/me', config)
+        fetch('/api/me', getConfig)
             .then(
                 response => {
                     if (response.status >= 400) {
-                        // dispatch({ type: status.FAILURE });
+                        throw new Error();
                     }
-                    return dispatch(
-                        {
+                    return response.json();
+                })
+                .then(json =>
+                        dispatch({
                             type: GET_CONTACT_INFORMATION_SUCCESS,
-                            result: response.json()
-                        });
-                },
-                error => console.log('An error occured.', error)
+                            result: json
+                        }),
             );

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
@@ -22,7 +23,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:59044",
+      "target": "http://localhost:5000",
       "ws": true
     }
   },

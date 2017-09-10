@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 
-@Path("/")
+@Path("/api")
 public class CVAppController {
 
     private JdbcTemplate jdbcTemplate;

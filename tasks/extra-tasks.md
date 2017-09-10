@@ -4,7 +4,7 @@
 
 ## X. Add a favicon to your application. 
 Find a nice icon to use as favicon and store it inside the public-folder.
-Uncomment the line inside `index.html` so that the icon is added ot he file.   
+Uncomment the line inside `index.html` so that the icon is added to the file.   
 
 ## X.2: Setup build trigger. 
 

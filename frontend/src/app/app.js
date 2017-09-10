@@ -4,6 +4,7 @@ import './app.css';
 import ContactInformationContainer from './contact-information/contact-information-container';
 import EducationContainer from './education/education-container';
 import WorkContainer from './work/work-container';
+import DevTools from './devtools';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
                 <WorkContainer />
               </div>
           </Grid>
+          <DevTools />
       </div>
     );
   }

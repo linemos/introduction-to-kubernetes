@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import PT from 'prop-types';
 import { connect } from 'react-redux';
 import Education from './education';
+import { getEducation } from '../../ducks/education';
 
 class EducationContainer extends Component {
-    componentWillMount() {}
+    componentWillMount() {
+        this.props.getEducation();
+    }
     render() {
-        const { } = this.props;
-        return (
-            <div className="education-container">
-
-            </div>
-        );
+        return <Education {...this.props} />;
     }
 }
 
@@ -19,10 +17,12 @@ EducationContainer.propTypes = {};
 
 const mapStateToProps = state => (
     {
-        education: state.education
+        education: state.education.rows
     }
 );
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+    getEducation
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Education);
+export default connect(mapStateToProps, mapDispatchToProps)(EducationContainer);

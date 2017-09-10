@@ -2,26 +2,15 @@ import React from 'react';
 import PT from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 
-const Education = ({ }) => {
-    const education = [
-        {
-            year_from: '2010',
-            year_to: '2013',
-            place: 'University of Oslo',
-            comment: 'Bachelor\'s degree'
-        },
-        {
-                year_from: '2013',
-                year_to: '2015',
-                place: 'University of Oslo',
-                comment: 'Master\'s degree'
-        }
-    ];
-
+const Education = ({ education }) => {
+    if (!education) {
+        return <noscript />;
+    }
+    console.log('Education: ', education);
     const educationRows = education ?
-        education.map((elm) => (
-            <Row className="table-row">
-                <Col xs="3">{elm.year_from} - {elm.year_to}</Col>
+        education.map((elm, inc) => (
+            <Row className="table-row" key={`education-row-${inc}`}>
+                <Col xs="3">{elm.yearFrom} - {elm.yearTo}</Col>
                 <Col xs="4">{elm.place}</Col>
                 <Col xs="4">{elm.comment}</Col>
             </Row>
@@ -43,6 +32,8 @@ const Education = ({ }) => {
     );
 };
 
-Education.propTypes = {};
+Education.propTypes = {
+    education: PT.arrayOf(PT.object)
+};
 
 export default Education;

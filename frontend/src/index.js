@@ -7,7 +7,6 @@ import { Route } from 'react-router';
 import createReduxStore from './store/index';
 import App from './app/app';
 import './index.css';
-import registerServiceWorker from './registerServiceWorker';
 const store = createReduxStore();
 
 render(
@@ -20,4 +19,3 @@ render(
     ),
     document.getElementById('root')
 );
-registerServiceWorker();
