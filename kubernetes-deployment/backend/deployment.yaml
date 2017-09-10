@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cv-app-backend-controller
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: cv-app-backend-application
+    spec:
+      containers:
+      - name: cv-app-backend-application
+        image: us.gcr.io/PROJECT_NAME/DOCKER_BACKEND_NAME # TODO: Insert project and docker-tag here
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5000
+            protocol: TCP
+        volumeMounts:
+          - name: cloudsql
+            mountPath: /cloudsql
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      volumes:
+      - name: cloudsql
+        emptyDir:
