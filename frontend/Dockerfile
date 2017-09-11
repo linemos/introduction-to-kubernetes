@@ -2,16 +2,16 @@
 FROM node:6
 
 # Create app directory
-RUN mkdir -p /src
-WORKDIR /src
+RUN mkdir -p /usr
+WORKDIR /usr
 
 # Install app dependencies
-COPY ./package.json /src/
+COPY ./package.json /usr/
 RUN npm install
 
 # Bundle app source
-COPY src/. /src
-COPY public/. /src/public
+COPY src/. /usr/src/
+COPY public/. /usr/public
 
 # Build and optimize react app
 RUN npm run build

@@ -37,7 +37,8 @@ Open the Docker application you have installed and click "Run".
 
 **Linux**
 
-Start Docker by typing `dockerd &` in the terminal. 
+Start Docker by typing `dockerd` in the terminal.
+Docker should run in this terminal during the whole workshop.
 
 **Check that Docker is running**
 
