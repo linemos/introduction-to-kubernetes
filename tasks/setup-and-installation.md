@@ -1,7 +1,7 @@
 # Task 1: Set up and installation
 
 ## 1.1 Installations
-- Install an editor that you want to want to use for coding. 
+- Install an editor that you want to use for coding. 
 - Install Java SDK: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
   - Test that it works by typing `java -version`
 - Install node and npm: https://docs.npmjs.com/getting-started/installing-node
