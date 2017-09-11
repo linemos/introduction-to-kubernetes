@@ -1,7 +1,7 @@
 # Introduction to Kubernetes
 
 
-Slides:
+Slides: [HERE](/../introduction-to-kubernetes) :smile: :tada:
 
 ## Tasks
  1) [Setup and Installation](setup-and-installation.md)
