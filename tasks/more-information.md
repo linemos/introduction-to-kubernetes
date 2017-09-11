@@ -39,11 +39,11 @@ Get all work experience: `/api/work`. Returns a list of objects on the same form
 ## About the different part of our application
 
 ### MYSQL database
-Read more information about the MYSQL database [here](/../mysql/readme.md). 
+Read more information about the MYSQL database [here](./../mysql/readme.md). 
 
 ### Backend
-Read more information about the backend [here](/../backend/README.md). 
+Read more information about the backend [here](./../backend/README.md). 
 
 ### Frontend
-Read more information about the frontend [here](/../frontend/README.md).
+Read more information about the frontend [here](./../frontend/README.md).
 

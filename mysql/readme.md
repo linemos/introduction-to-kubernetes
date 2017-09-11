@@ -5,3 +5,4 @@ Go to Google Cloud Console in your browser. Navigate to Storage -> SQL in the me
 Create a new instance named `mycvapp`. Create a user called `cvuser` and create a password for the user.
 
 Log in using the button `Connect using Cloud Shell`. Paste the lines in the file `script.sql` into the shell to create the database and its tables.
+Remember to edit the last three INSERT statements to store your information instead of the example information.
