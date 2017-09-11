@@ -3,6 +3,7 @@
 Open this project in your chosen editor.
 
 ## 3.1 Run the backend
+We will start by running the backend on our machines.
 
 ### 3.1.1 Connect to your database
 First, we have to specify the location of our database along with login credentials in the application.
@@ -42,10 +43,7 @@ The frontend should automatically open a browser window where you can view our a
 Check that all data is correctly viewed. It might take som time to load the data into our application,
 this is because the data is loaded from the cloud.  
 
-## 3.3 Check the status of your application
-
-
-We want to check that our application works. Try to change a field in the databased script and update the database. 
+## 3.3 Add more info to the database
 
 1. Go back to the Google Cloud Console in your browser, and visit the SQL page.
 2. Click on your `cvapp-db` and then `Connect using Cloud Shell`.
