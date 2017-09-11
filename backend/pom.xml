@@ -129,13 +129,13 @@
                         </goals>
                         <phase>package</phase>
                         <configuration>
-                            <finalName>cv-app</finalName>
+                            <finalName>my-cv-backend</finalName>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.vibbio.cvapp</mainClass>
+                                    <mainClass>com.vibbio.cvapp.CVApp</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

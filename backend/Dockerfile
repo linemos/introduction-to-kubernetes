@@ -18,5 +18,5 @@ RUN ["mvn", "verify"]
 ADD src /code/src
 RUN ["mvn", "package"]
 
-EXPOSE 5050
-CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "target/my-cv-backend.jar"]
+EXPOSE 5000
+CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "target/my-cv-backend-jar-with-dependencies.jar"]

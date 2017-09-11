@@ -53,7 +53,7 @@ The version is useful to separate different builds from each other and to create
 ## 4.2 Run the docker container locally [OPTIONAL]
 
 It is useful to try to run your application locally with docker images, but it is not necessary.
-We recommend skipping this task and do it after you have deployed your application to the cloud :blush:
+We recommend skipping this task for now and do it after you have deployed your application to the cloud :blush:
 
 **Stop frontend and backend**
 

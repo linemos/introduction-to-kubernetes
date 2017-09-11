@@ -1,6 +1,4 @@
 /backend/target/
-.idea
+.idea/*
 /frontend/node_modules
 *.iml
-*.xml
-/backend/cv-app.iml
