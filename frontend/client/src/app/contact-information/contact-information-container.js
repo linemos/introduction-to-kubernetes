@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PT from 'prop-types';
 import { connect } from 'react-redux';
 import ContactInformation from './contact-information';
 import { getContactInformation } from '../../ducks/contact-information';

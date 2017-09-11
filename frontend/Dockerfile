@@ -1,18 +1,33 @@
 # Dockerfile
 FROM node:6
 
-# Create app directory
-RUN mkdir -p /usr
+
+RUN mkdir -p /usr/client
+WORKDIR /usr/client
+
+# Copy all code (except node_modules)
+COPY ./client/src/. /usr/client/src/
+COPY ./client/public/. /usr/client/public/
+COPY ./client/package.json /usr/client/
+
+
+RUN npm install # To run silently, without output to terminal, add --silent
+
+# Bundle app
+RUN npm run build
+
+
+
+# Set workdir to server
 WORKDIR /usr
 
 # Install app dependencies
 COPY ./package.json /usr/
-RUN npm install
+COPY ./index.js /usr/
 
-# Bundle app source
-COPY src/. /usr/src/
-COPY public/. /usr/public
+# Run server
+RUN npm install
 
 EXPOSE 3000
 
-CMD [ "npm", "build" ]
+CMD [ "npm", "start" ]

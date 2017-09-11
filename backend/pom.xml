@@ -104,7 +104,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.vibbio.cvapp</mainClass>
+                            <mainClass>com.vibbio.cvapp.CVApp</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>
@@ -147,7 +147,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>com.vibbio.cvapp</mainClass>
+                    <mainClass>com.vibbio.cvapp.CVApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>

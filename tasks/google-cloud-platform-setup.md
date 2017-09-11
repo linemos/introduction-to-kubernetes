@@ -1,11 +1,8 @@
 # Task 2: Google Cloud Platform
 
 ## 2.1 Create a project
-Log in to [google cloud](https://console.cloud.google.com/) and create a project.
-Wait for the API and related services to be enabled. This can take several minutes.
-Enable billing for your project.
-You will have 100 free days for your account and should not be charged for the workshop. 
-
+Log in to [google cloud](https://console.cloud.google.com/)
+and choose your project name in the drop down menu in the blue header.
 
 ## 2.2 Create a cluster
 We need a cluster where we want to run our application.
@@ -14,14 +11,14 @@ scroll down to Compute.
 
 1. Select Container Engine and then Container clusters. Click `Create cluster`.
 2. Name your cluster `cv-cluster`.
-3. Choose a zone starting with *us-central1*.
-This is use full if you want to try out some beta functionality that is 
+3. Choose a zone starting with *us-central1-a*.
+This is useful if you want to try out some beta functionality that is 
 limited to this zone.
 4. Scroll down to and click `More`. This will expand advanced options.
 5. Find the part called **Project access**.
 6. Set **Storage** to *Full*.
 7. Set **Cloud SQL** to *Enabled*.
-8. Click *Create*.
+8. Click *Create*. This will probably take several minutes.
 
 This will give your cluster access to Storage and the SQL instance we are going to create next.
 
@@ -29,23 +26,28 @@ This will give your cluster access to Storage and the SQL instance we are going 
 ## 2.3 Setup a MySQL-database
 
 Go to Google Cloud Console in your browser.
-Navigate to Storage -> SQL in the menu on the left.
-
-Create a new instance named `cvapp-db`.
-Create a user called `cvuser` and create a password for the user. 
-
-Log in using the button `Connect using Cloud Shell`.
-Paste the lines in the file [mysql/script.sql](../mysql/script.sql) into the shell to create the database and its tables.
-
+1. Navigate to SQL in the menu on the left.
+2. Chose a MySQL-database, second generation.
+3. Name the instance `cvapp-db` and set the root password to `cvapp-passord.
+4. Set Region to *us-central1* and zone to *us-central1-a*
+4. Click create.
+*This process can take a while.* While you wait you can do this:
+    1. In the search field in the blue header, search for  Google Cloud SQL API and click enable
+    2. start with the next tasks in [3.1](run-application-locally.md)
+5. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
+6. Create a user called `cvuser` and set the password to `cvapp-passord`. 
+7. Go back to *Overview* and log in using the button *Connect using Cloud Shell*. Type the password `cvapp-passord`.
+8. Paste the lines in the file [mysql/script.sql](../mysql/script.sql) into the shell to create the database and its tables.
 
 ## 2.4 Setup an external IP
 We haven't deployed our application but we will need an IP address to reach our application later. 
 Set up an external IP that we will use to connect to the frontend of your application. 
+You will get a warning doing this, but it's ok, we will connect it to our service soon.
 
 **Reserve an external IP address**
-1) Go to `VPC Network`
-2) Select `External IP Addresses`
-3) Choose `Reserve Static IP Address`
+1) Go to *VPC Network*
+2) Select *External IP Addresses*
+3) Choose *Reserve Static Address*
 4) Choose a name for your address
 5) Set *attached to* and choose `cv-cluster`, the cluster you created in Task 2.2. 
 

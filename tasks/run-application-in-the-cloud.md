@@ -80,7 +80,9 @@ We will also need deployments. The deployments will create pods that run our doc
 The service will receive requests and direct them to its pods.
 
 ### 5.4.1 Backend
-Deploy our backend to Google Cloud Container Engine:
+1. Open the file *kubernetes-deployment/backend/deployment.yaml*
+2. Insert your docker backend tag in the field **image:**
+3. Deploy our backend to Google Cloud Container Engine:
 ```
 kubectl create -f kubernetes-deployment/backend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.yaml
@@ -90,20 +92,50 @@ kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.ya
 
 **Set external IP address**
 
-Before we deploy the frontend, we need to insert the external IP address we created earlier. We can view it by typing the command:
+Before we deploy the frontend, we need to insert the external IP address we created earlier.
+1. We can view our external IP address by typing the command:
 
 ```
 gcloud compute addresses list
 ```
 
-Copy the IP address and paste it in the IP-field in the file `kubernetes-deployment/frontend/service.yaml`.
-Deploy our frontend to Google Cloud Container Engine:
+2. Copy the IP address and paste it in the field **loadBalancerIp: ** in the file *kubernetes-deployment/frontend/service.yaml*.
+3. Open the file *kubernetes-deployment/frontend/deployment.yaml*
+4. Insert your docker frontend tag in the field **image:**
+5. Deploy our frontend to Google Cloud Container Engine:
 
 ```
 kubectl create -f kubernetes-deployment/frontend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/frontend/deployment.yaml
 ```
 
+### 5.4.3 Status of the cloud
+Check that the cluster is up and running, without any error status. We will use kubernetes commands for this:
+
+**View all pods**
+
+`kubectl get pods`
+
+**View status of deployments**
+
+`kubectl get deployments`
+
+**View status of service**
+
+`kubectl get services`
+If the external IP of the frontend service is pending, wait for a couple of minutes and check again.
+
+**View errors**
+
+If you get any errors, you can look at the logs of a pod with the following command: 
+```
+kubectl logs [PODNAME]
+```
+
+### 5.4.4 View your application
+When all pods, deployments and services are running, paste the external IP adress in your browser to take a look at your awesome CV!
+
+## Additional information
 **Locating the backend**
 
 The frontend can't run the development server in the cloud as we did locally.
@@ -134,28 +166,3 @@ kubectl exec -it [FRONTEND_POD_NAME] -- printenv
 Notice that we can find the address of our backend and its port under **CV_APP_BACKEND_SERVICE_PORT**. 
 This environment variable is used inside our service, and if the IP address will change, so will the environment variable.  
 
-### 5.4.3 Status of the cloud
-Check that the cluster is up and running, without any error status.
-
-**View all pods**
-
-`kubectl get pods`
-
-**View status of deployments**
-
-`kubectl get deployments`
-
-**View status of service**
-
-`kubectl get services`
-If the external IP of the frontend service is pending, wait for a couple of minutes and check again.
-
-**View errors**
-
-If you get any errors, you can look at the logs of a pod with the following command: 
-```
-kubectl logs [PODNAME]
-```
-
-### 5.4.4 View your application
-When all pods, deployments and services are running, paste the external IP adress in your browser to take a look at your awesome CV!

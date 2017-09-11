@@ -1,4 +1,5 @@
 # Task 1: Set up and installation
+If you are using Mac, we recommend installing [brew](https://brew.sh/). This will make the installation process a lot easier.
 
 ## 1.1 Installations
 - Install an editor that you want to use for coding. 
@@ -51,12 +52,13 @@ Start using gcloud by typing:
 ```
 gcloud init
 ```
+1. Choose option 1 when you are asked about the configuration.
+2. When asked about what project you want to use, chose the one you created earlier.
+3. This will open a tab in your browser where you will login with your chosen Google-account.
 
-The command includes authentication for your user. 
-This will open a tab in your browser where you will login with your chosen Google-account.
-
-You will not have to sign in with Kubernetes (kubectl) since this is a part of gcloud.
-
+**After the init process is finished**
+1. Go to the Google Cloud Console in your browser and search in the search field for Google Compute Engine API.
+2. Click enable 
 
 **Authentication only**
 

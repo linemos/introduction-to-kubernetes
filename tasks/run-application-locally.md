@@ -1,30 +1,6 @@
 # Task 3: Run application locally
 
-Open this project in your chosen editor.
-
-## 3.1 Run the backend
-We will start by running the backend on our machines.
-
-### 3.1.1 Connect to your database
-First, we have to specify the location of our database along with login credentials in the application.
-Insert the name of your database instance, username and password in the file
-`backend/src/main/java/com/vibbio/cvapp/AppConfig.java`.
-You can find the instance name in the Google Cloud Console in your browser, it will be in a format like this:
-```
-myprojectname:us-central1:cvapp-db
-```
-
-### 3.1.2 Start backend
-Run the application by running these commands in your terminal:
-
-```
-cd backend
-mvn clean install
-mvn exec:java
-```
-Make sure there are no errors from Maven.
-
-## 3.2 Run the frontend 
+## 3.1 Run the frontend 
 
 Our frontend is installed and run by Node Package Manager (npm). 
 
@@ -43,7 +19,41 @@ The frontend should automatically open a browser window where you can view our a
 Check that all data is correctly viewed. It might take som time to load the data into our application,
 because the data is loaded from the database in the cloud (from Task 2.3).
 
-## 3.3 Add more info to the database
+Go back to whe Google Cloud SQL view in your browser to see if the SQL instance is finished with creation.
+
+## 3.2 Provide credentials for local integration with Google Cloud SQL
+We need to provide our machine with credentials for Google Cloud in order to run our application. Run this command:
+```
+gcloud auth application-default login
+```
+
+## 3.3 Run the backend
+We can now start running the backend on our machines.
+Open this project in your chosen editor.
+
+### 3.3.1 Connect to your database
+First, we have to specify the location of our database.
+Find the instance name in the Google Cloud Console in your browser, under *SQL* in the menu on the left.
+It will be in a format like this.
+```
+myprojectname:us-central1:cvapp-db
+```
+
+Replace the string 'INSERT_SQL_NAME_HERE' in the file `backend/src/main/java/com/vibbio/cvapp/AppConfig.java` with this instance name.
+
+### 3.1.2 Start backend
+1. In a terminal, navigate into the folder you have downloaded this project.
+2. Run the application by running these commands in your terminal:
+
+```
+cd backend
+mvn clean install
+mvn exec:java
+```
+
+Make sure there are no errors from Maven.
+
+## 3.4 Add more info to the database
 
 1. Go back to the Google Cloud Console in your browser, and visit the SQL page.
 2. Click on your `cvapp-db` and then `Connect using Cloud Shell`.

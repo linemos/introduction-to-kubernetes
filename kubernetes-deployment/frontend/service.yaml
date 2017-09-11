@@ -4,7 +4,7 @@ metadata:
   name: cv-app-frontend-service
 spec:
   type: LoadBalancer
-  ip: #INSERT IP HERE
+  loadBalancerIp: #INSERT IP HERE
   selector:
     app: cv-app-frontend-application
   ports:
