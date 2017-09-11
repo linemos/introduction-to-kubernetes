@@ -1,9 +1,27 @@
 # Task 3: Run application locally
 
+Open this project in your chosen editor.
 
 ## 3.1 Run the backend
 
-LINE
+### 3.1.1 Connect to your database
+First, we have to specify the location of our database along with login credentials in the application.
+Insert the name of your database instance, username and password in the file
+`backend/src/main/java/com/vibbio/cvapp/AppConfig.java`.
+You can find the instance name in the Google Cloud Console in your browser, it will be in a format like this:
+```
+myprojectname:us-central1:cvapp-db
+```
+
+### 3.1.2 Start backend
+Run the application by running these commands in your terminal:
+
+```
+cd backend
+mvn clean install
+mvn exec:java
+```
+Make sure there are no errors from Maven.
 
 ## 3.2 Run the frontend 
 
@@ -19,11 +37,20 @@ Since our backend runs on `localhost:5000`, we should have this inside our *pack
 
 ## 3.3 Check the status of your application
 We want to check that our application works. Try to change a field in the databased script and update the database. 
-For example, add a comment to one of your education rows and upload the data to the database 
 
-(LINE: bedre beskrivelse?)
+1. Go back to the Google Cloud Console in your browser, and visit the SQL page.
+2. Click on your `cvapp-db` and then `Connect using Cloud Shell`.
+3. Log in with username and password.
+4. Insert a line, for example a line like this:
+```
+INSERT INTO education (place, comment, from_year, to_year) VALUES ('Your school','study','year','year');
+```
 
-Check that the data is correctly updated.   
+5. Type this to list all the data in your education table:
+```
+SELECT * FROM education;
+```
+Check that the data is correctly inserted.   
 
 
 ## 3.4 Add data to the application
