@@ -20,4 +20,7 @@ Before you finish the workshop!
 Tasks if you have finished the other tasks but are not yet ready for final tasks
  * [Extra tasks](tasks/extra-tasks.md)
 
-Want more information about our application? [Check out this page](task/more-information.md). 😊 
+## Further reading:
+Want more information about our application? [Check out this page](task/more-information.md).
+
+Visit the [Kubernetes documantaion](https://kubernetes.io/docs/concepts/) to learn more.
