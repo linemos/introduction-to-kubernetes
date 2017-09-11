@@ -14,7 +14,7 @@ export default function reducer(state = { rows: undefined }, action) {
 
 export const getWorkExperience = () =>
     dispatch =>
-        fetch('/api/education', getConfig)
+        fetch('/api/work', getConfig)
             .then(
                 response => {
                     if (response.status >= 400) {

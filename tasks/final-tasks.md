@@ -14,6 +14,9 @@ If you don't want to be charged, you will have to clean up and destroy your appl
 
 **Deleting your cluster**
 
+## Stop Docker
+Stop docker by 
+
 
 
 ## Keep your application
