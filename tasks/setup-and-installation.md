@@ -13,6 +13,18 @@
   - Create a project
 - Install Google Cloud command-line tool (gcloud): https://cloud.google.com/sdk/downloads
 - Install Kubernetes command-line tool (kubectl). Run the following command in the terminal to install: `gcloud components install kubectl`
+- Install maven: https://maven.apache.org/install.html
+  - Check that maven is installed by typing `mvn -v` in the terminal 
+
+We recommend downloading and installing [Git](https://git-scm.com/downloads), but you can continue without if you want. 
+
+- Clone this project :
+
+```
+git clone git@github.com:vibbio/introduction-to-kubernetes.git
+```
+
+Or click Download. 
 
 
 ## 1.2 Start the environment
@@ -25,7 +37,7 @@ Open the Docker application you have installed and click "Run".
 
 **Linux**
 
-Start Docker by typing `dockerd amp;` in the terminal. 
+Start Docker by typing `dockerd &` in the terminal. 
 
 **Check that Docker is running**
 

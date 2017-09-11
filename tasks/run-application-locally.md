@@ -29,11 +29,18 @@ Our frontend is installed and run by Node Package Manager (npm).
 
 
 ### Start the application
- - Install all packages with `npm i ` (inside /frontend folder)
- - Run the application with `npm start`
+ 1. Go into the frontend folder from a different terminal: `cd /frontend`
+ 2. Install all packages with `npm i `.
+ This will download all packages and store them in a folder called `node_modules`.
+ 3. Start the application by typing `npm start`.
 
-The application is connected to the backend through *proxy* inside *package.json*. 
-Since our backend runs on `localhost:5000`, we should have this inside our *package.json*.
+The application is connected to the backend through the *proxy* field inside *package.json*. 
+Since our backend runs on `localhost:5000` (you can view this in the terminal where you started the backend),
+we should have this inside our *package.json*.
+
+The frontend should automatically open a browser window where you can view our application.
+Check that all data is correctly viewed. It might take som time to load the data into our application,
+this is because the data is loaded from the cloud.  
 
 ## 3.3 Check the status of your application
 We want to check that our application works. Try to change a field in the databased script and update the database. 
@@ -63,4 +70,4 @@ This should be added in the database, in the backend application and in the fron
 
 ### 3.4.3 View the email in frontend
 Add a field in the frontend to view the email address as part of your contact information. 
-This can be done inside the `contact-information.js` component. 
+This can be done inside the `contact-information.js` component.
