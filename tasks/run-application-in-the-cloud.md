@@ -67,8 +67,7 @@ You should see your new build successfully uploaded under the correct build name
 You can add additional tags to your build by pressing the edit button under the "tags" column. 
 
 
-
-### X.X (TODO) Release Application
+## 5.4 Release the application
 
 Before we start deploying our application we need to specify what cluster we want to deploy our application to.
 We do this using this command:
@@ -80,42 +79,37 @@ To deploy the application we need to create a service for both the backend and t
 We will also need deployments. The deployments will create pods that run our docker images containing our applications.
 The service will receive requests and direct them to its pods.
 
-#### Backend
+### 5.4.1 Backend
 Deploy our backend to Google Cloud Container Engine:
 ```
 kubectl create -f kubernetes-deployment/backend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.yaml
 ```
 
-#### Frontend
+### 5.4.2 Frontend
+Before we deploy the frontend, we need to insert the external IP address we created earlier. We can view it by typing the command:
+```
+gcloud compute addresses list
+```
+Copy the IP address and paste it in the IP-field in the file `kubernetes-deployment/frontend/service.yaml`.
 Deploy our frontend to Google Cloud Container Engine:
 ```
 kubectl create -f kubernetes-deployment/frontend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/frontend/deployment.yaml
 ```
 
-## Status of the cloud
+### 5.4.3 Status of the cloud
 Check that the cluster is up and running, without any error status.
 
 **View all pods**
 `kubectl get pods`
 
 **View status of deployments**
-`kubectl get deployments [deployment-name]`
+`kubectl get deployments`
 
 **View status of service**
-`kubectl get services [service-name]`
+`kubectl get services`
+If the external IP of the frontend service is pending, wait for a couple of minutes and check again.
 
-### Ingress
-Now that we have our services, deployments and pods running, all thats missing is a way to expose our app to the internet!
-We do that by creating an ingress:
-```
-kubectl create -f kubernetes-deployment/ingress.yaml
-```
-
-This prossess will take some time, but when we get an external IP, we can view our app in the browser.
-Wait for the external IP to be allocated by running:
-```
-kubectl get ingress --watch
-```
-When an address shows up, paste it in your browser to take a look at your awesome CV!
+### 5.4.4 View your application
+When all pods, deployments and services are running, paste the external IP adress in your browser to take a look at your awesome CV!
