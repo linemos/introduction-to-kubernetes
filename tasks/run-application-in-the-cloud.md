@@ -88,26 +88,6 @@ kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.ya
 
 ### 5.4.2 Frontend
 
-The frontend can't run the development server in the cloud as we did locally.
-In the cloud we will run index.js that is located directly under */frontend*. 
-This file will start an express server that hosts our client code. 
-
-When building the docker image for our frontend client, we run *npm run build*.
-This will bundle the client code in order for our server (inside frontend/index.js) to host the code. 
-
-Notice that our frontend server (frontend/index.js) needs to know where to find the backend. 
-This is done through environment variables that are automatically set by Kubernetes. 
-
-**Find all environment variables**
-
-We can view all environment variables for a pod by typing: 
-```
-kubectl exec -it <podname> -- printenv
-```
-
-Notice that we can find the address of our backend and its port under **CV_APP_BACKEND_SERVICE_PORT**. 
-This environment variable is used inside our service, and if the IP address will change, so will the environment variable.  
-
 **Set external IP address**
 
 Before we deploy the frontend, we need to insert the external IP address we created earlier. We can view it by typing the command:
@@ -124,18 +104,58 @@ kubectl create -f kubernetes-deployment/frontend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/frontend/deployment.yaml
 ```
 
+**Locating the backend**
+
+The frontend can't run the development server in the cloud as we did locally.
+In the cloud we will run a separate server that is located under */frontend/index.js*. 
+This file will start an express server that hosts our client code. 
+
+When building the docker image for our frontend client, we run *npm run build*.
+This will bundle the client code in order for our frontend-server to host the code. 
+
+Notice that our frontend server (frontend/index.js) needs to know where to find the backend. 
+This is done through environment variables that are automatically set by Kubernetes.
+
+All pods within a cluster know where to find the other services in the cluster.
+By default, our frontend pod can access our backend service.   
+
+**Find all environment variables**
+
+View all pods in our cluster (we assume your backend pods is up and running):
+```
+kubectl get pods
+```
+
+We can view all environment variables for a pod by typing: 
+```
+kubectl exec -it [FRONTEND_POD_NAME] -- printenv
+```
+
+Notice that we can find the address of our backend and its port under **CV_APP_BACKEND_SERVICE_PORT**. 
+This environment variable is used inside our service, and if the IP address will change, so will the environment variable.  
+
 ### 5.4.3 Status of the cloud
 Check that the cluster is up and running, without any error status.
 
 **View all pods**
+
 `kubectl get pods`
 
 **View status of deployments**
+
 `kubectl get deployments`
 
 **View status of service**
+
 `kubectl get services`
 If the external IP of the frontend service is pending, wait for a couple of minutes and check again.
+
+**View errors**
+
+If you get any errors, you can look at the logs of a pod with the following command: 
+```
+kubectl logs [PODNAME]
+```
 
 ### 5.4.4 View your application
 When all pods, deployments and services are running, paste the external IP adress in your browser to take a look at your awesome CV!

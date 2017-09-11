@@ -29,7 +29,8 @@ Make sure there are no errors from Maven.
 Our frontend is installed and run by Node Package Manager (npm). 
 
 ### Start the application
- 1. Go into client folder (located inside frontend folder) from a different terminal: `cd /frontend/client`
+This is how you can start your application locally.
+ 1. Go into the folder/client from a different terminal: `cd /frontend/client`
  2. Install all packages with `npm i `.
  This will download all packages and store them in a folder called `node_modules`.
  3. Start the application by typing `npm start`.
@@ -40,7 +41,7 @@ we should have this inside our *package.json*.
 
 The frontend should automatically open a browser window where you can view our application.
 Check that all data is correctly viewed. It might take som time to load the data into our application,
-this is because the data is loaded from the cloud.  
+because the data is loaded from the database in the cloud (from Task 2.3).
 
 ## 3.3 Add more info to the database
 
