@@ -33,6 +33,7 @@ Go to Google Cloud Console in your browser.
 4. Click create.
 *This process can take a while.* While you wait you can do this:
     1. In the search field in the blue header, search for  Google Cloud SQL API and click enable
+        1. You must also enable Billing in this step.
     2. start with the next tasks in [3.1](run-application-locally.md)
 5. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
 6. Create a user called `cvuser` and set the password to `cvapp-passord`. 
