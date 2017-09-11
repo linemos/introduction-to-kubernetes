@@ -87,12 +87,38 @@ kubectl create --save-config=true -f kubernetes-deployment/backend/deployment.ya
 ```
 
 ### 5.4.2 Frontend
+
+The frontend can't run the development server in the cloud as we did locally.
+In the cloud we will run index.js that is located directly under */frontend*. 
+This file will start an express server that hosts our client code. 
+
+When building the docker image for our frontend client, we run *npm run build*.
+This will bundle the client code in order for our server (inside frontend/index.js) to host the code. 
+
+Notice that our frontend server (frontend/index.js) needs to know where to find the backend. 
+This is done through environment variables that are automatically set by Kubernetes. 
+
+**Find all environment variables**
+
+We can view all environment variables for a pod by typing: 
+```
+kubectl exec -it <podname> -- printenv
+```
+
+Notice that we can find the address of our backend and its port under **CV_APP_BACKEND_SERVICE_PORT**. 
+This environment variable is used inside our service, and if the IP address will change, so will the environment variable.  
+
+**Set external IP address**
+
 Before we deploy the frontend, we need to insert the external IP address we created earlier. We can view it by typing the command:
+
 ```
 gcloud compute addresses list
 ```
+
 Copy the IP address and paste it in the IP-field in the file `kubernetes-deployment/frontend/service.yaml`.
 Deploy our frontend to Google Cloud Container Engine:
+
 ```
 kubectl create -f kubernetes-deployment/frontend/service.yaml
 kubectl create --save-config=true -f kubernetes-deployment/frontend/deployment.yaml

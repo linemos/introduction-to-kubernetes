@@ -28,14 +28,13 @@ Make sure there are no errors from Maven.
 
 Our frontend is installed and run by Node Package Manager (npm). 
 
-
 ### Start the application
- 1. Go into the frontend folder from a different terminal: `cd /frontend`
+ 1. Go into client folder (located inside frontend folder) from a different terminal: `cd /frontend/client`
  2. Install all packages with `npm i `.
  This will download all packages and store them in a folder called `node_modules`.
  3. Start the application by typing `npm start`.
 
-The application is connected to the backend through the *proxy* field inside *package.json*. 
+Locally, the application is connected to the backend through the *proxy* field inside *package.json*. 
 Since our backend runs on `localhost:5000` (you can view this in the terminal where you started the backend),
 we should have this inside our *package.json*.
 

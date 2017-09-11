@@ -13,9 +13,6 @@ RUN npm install
 COPY src/. /usr/src/
 COPY public/. /usr/public
 
-# Build and optimize react app
-RUN npm run build
-
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "build" ]
