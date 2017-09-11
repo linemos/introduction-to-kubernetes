@@ -50,7 +50,10 @@ We recommend these build-names:
 
 The version is useful to separate different builds from each other and to create specific versions for test or prod.
 
-## 4.2 Run the docker container locally
+## 4.2 Run the docker container locally [OPTIONAL]
+
+It is useful to try to run your application locally with docker images, but it is not necessary.
+We recommend skipping this task and do it after you have deployed your application to the cloud :blush:
 
 **Stop frontend and backend**
 
@@ -90,3 +93,45 @@ You can also run the docker image with the name you have chosen:
 ```
 docker run -i -t us.gcr.io/myawesomeprojectname/cv-frontend:0.1.0
 ```
+
+**Stop docker container**
+
+List all running docker containers by typing: 
+
+```
+docker ps -a
+``` 
+
+This should output something like this: 
+
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                          PORTS               NAMES
+929f0e9c8f22        afa2e563a40a        "/bin/sh -c 'npm r..."   6 seconds ago       Up 4 seconds                                        laughing_stallman
+334a22f7f3c6        57302c476b54        "npm start"              52 seconds ago      Exited (0) 6 seconds ago                            jovial_poincare
+182f284f31ab        04d2de9d5694        "npm start"              8 minutes ago       Exited (0) About a minute ago                       competent_lamport
+92a3a7fac67a        04d2de9d5694        "npm start"              9 minutes ago       Exited (0) 8 minutes ago                            focused_kowalevski
+```
+
+Stopping a docker container is done by typing: 
+```
+docker stop [container_id]
+```
+
+## 4.2.1 Run docker images and access the running container 
+
+We need to get access to the port you are running your docker image on so that we can access the result. 
+
+For the frontend, find the docker image ID and run the following command: 
+
+```
+docker run -d -p 3000:3000 [DOCKER_IMAGE_ID]
+```
+
+
+For the backend, find the docker image ID and run the following command: 
+
+```
+docker run -d -p 5000:5000 [DOCKER_IMAGE_ID]
+```
+
+Open a tab in your browser and access your application with `localhost:3000`.

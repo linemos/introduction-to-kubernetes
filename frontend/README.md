@@ -9,7 +9,7 @@ This is the frontend of our CV application, and is based on [React Create-app](h
 The application is connected to the backend through *proxy* inside *package.json*.
 
 #### Local
-To run the application with the local backend, use `localhost:8080` (TODO: Insert exact backend url).
+To run the application with the local backend, use `localhost:3000` (TODO: Insert exact backend url).
 
 #### Cloud
 Inside *proxy* inside *package.json*, swap the address to `http://[your IP-address]`.

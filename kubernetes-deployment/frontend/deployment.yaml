@@ -14,7 +14,7 @@ spec:
         image: us.gcr.io/PROJECT_NAME/DOCKER_BACKEND_NAME # TODO: Insert project and docker-tag here
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
           protocol: TCP
         env:
         - name: POD_NAME

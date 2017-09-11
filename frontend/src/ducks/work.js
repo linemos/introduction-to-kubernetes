@@ -27,4 +27,5 @@ export const getWorkExperience = () =>
                     type: GET_WORK_EXPERIENCE_SUCCESS,
                     result: json
                 }),
-            );
+            )
+            .catch(error => console.log(error));

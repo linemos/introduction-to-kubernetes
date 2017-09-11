@@ -16,6 +16,6 @@ COPY public/. /usr/public
 # Build and optimize react app
 RUN npm run build
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "npm", "start" ]

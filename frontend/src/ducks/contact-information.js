@@ -22,9 +22,10 @@ export const getContactInformation = () =>
                     }
                     return response.json();
                 })
-                .then(json =>
-                        dispatch({
-                            type: GET_CONTACT_INFORMATION_SUCCESS,
-                            result: json
-                        }),
-            );
+            .then(json =>
+                    dispatch({
+                        type: GET_CONTACT_INFORMATION_SUCCESS,
+                        result: json
+                    })
+            )
+            .catch(error => console.log(error));

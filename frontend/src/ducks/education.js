@@ -27,4 +27,5 @@ export const getEducation = () =>
                     type: GET_EDUCATION_SUCCESS,
                     result: json
                 }),
-            );
+            )
+            .catch(error => console.log(error));
