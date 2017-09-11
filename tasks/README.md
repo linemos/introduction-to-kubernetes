@@ -1,7 +1,7 @@
 # Introduction to Kubernetes
 
 
-Slides: [HERE](/../introduction-to-kubernetes) :smile: :tada:
+Slides: [HERE](http://slides.com/ingridguren-1/kubernetes-intro) :smile: :tada:
 
 ## Tasks
  1) [Setup and Installation](setup-and-installation.md)
