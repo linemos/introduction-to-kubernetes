@@ -1,7 +1,6 @@
 # Introduction to Kubernetes
 
-
-Slides: 
+Slides:
 
 ## Tasks
  1) [Setup and Installation](tasks/setup-and-installation.md)

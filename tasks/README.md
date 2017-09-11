@@ -1,7 +1,7 @@
 # Introduction to Kubernetes
 
 
-Slides: 
+Slides:
 
 ## Tasks
  1) [Setup and Installation](setup-and-installation.md)
@@ -13,11 +13,14 @@ Slides:
  7) [Autoscaling of application](autoscaling-of-application.md)
  
 ## Final Tasks
-Before you finish the workshop!
+Before you finish the workshop, you must either turn off billing or delete your cluster in order to avoid being billed after the free trial expires.
  - [Delete your cluster](final-tasks.md)
 
 ## Extra Tasks
-Tasks if you have finished the other tasks but are not yet ready for final tasks
+Tasks if you have finished the other tasks and want to learn more, here are some extra tasks.
  * [Extra tasks](extra-tasks.md)
 
-Want more information about our application? [Check out this page](more-information.md). 😊 
+## Further reading:
+Want more information about our application? [Check out this page](more-information.md).
+
+Visit the [Kubernetes documantaion](https://kubernetes.io/docs/concepts/) to learn more.
