@@ -43,6 +43,8 @@ Check that all data is correctly viewed. It might take som time to load the data
 this is because the data is loaded from the cloud.  
 
 ## 3.3 Check the status of your application
+
+
 We want to check that our application works. Try to change a field in the databased script and update the database. 
 
 1. Go back to the Google Cloud Console in your browser, and visit the SQL page.
@@ -57,16 +59,35 @@ INSERT INTO education (place, comment, from_year, to_year) VALUES ('Your school'
 ```
 SELECT * FROM education;
 ```
-Check that the data is correctly inserted.   
+Check that the data is correctly inserted. Don't close this tab, we will use it in the next task. 
 
 
 ## 3.4 Add data to the application
 We want to add a field in the contact information to display your email address.
 This should be added in the database, in the backend application and in the frontend application.  
 
-### 3.4.1 Update MYSQL (LINE)
+### 3.4.1 Update the database
+1. First we need to insert a new column from the table `personal`. Go back to the tab with the MySQL connection. Insert this:
+```
+ALTER TABLE personal ADD COLUMN email VARCHAR(255);
+```
+2. Check that a column is added to the table:
+```
+SELECT * FROM personal;
+```
+3. Insert your email. The update statement below will update all rows in the `personal` table.
+You probably only have one row, so this is OK, If you have inserted multiple,
+you have to add something like `WHERE row_name = 'row_value'` at the end of the statement.
+```
+UPDATE personal SET email = 'my_email@cvapp.com';
+```
 
-### 3.4.2 Retrieve email from database (LINE)
+### 3.4.2 Retrieve email from database:
+We also need to send the email to our frontend.
+1. Open the file `backend/src/main/java/com/vibbio/cvapp/PersonalInfo.java` and add a field `private String email`.
+Add it and initialize it in constructor as well.
+2. Open the file `backend/src/main/java/com/vibbio/cvapp/CVAppController.java`.
+3. In the function `getMe` we need to add `resultSet.getString("email")` as a third argument to the `PersonalInfo` constructor.
 
 ### 3.4.3 View the email in frontend
 Add a field in the frontend to view the email address as part of your contact information. 
