@@ -1,12 +1,6 @@
 # Extra tasks
 
-## X.1: Add more information to your cluster 
-
-## X. Add a favicon to your application. 
-Find a nice icon to use as favicon and store it inside the public-folder.
-Uncomment the line inside `index.html` so that the icon is added to the file.   
-
-## X.2: Setup build trigger. 
+## 1: Setup build trigger. 
 
 You might want to build a new docker image each time something is committed to a certain branch. 
 
@@ -20,7 +14,7 @@ Add some new commits to your branch and see how it triggers a build.
 Notice that you can see your previous builds under *build history*.
  
  
-## X: Make username and password secrets
+## 2: Make username and password secrets
 Having the username and password to your MySQL database in plain text directly in your code is not ideal.
 We are now going to store them as secrets in Kubernetes and the connection URL as an environment variable.
 
@@ -76,3 +70,10 @@ String password = System.getenv("MYSQL_PASSWORD");
 ```
 kubectl apply -f kubernetes-deployment/backend/deployment.yaml
 ```
+ 
+## X.1: Add more information to your cluster 
+Storage kanskje? Eller legge til språk eller teknologier som ny database-tabell og vise denne frontend
+
+## X. Add a favicon to your application. 
+Find a nice icon to use as favicon and store it inside the public-folder.
+Uncomment the line inside `index.html` so that the icon is added to the file.   

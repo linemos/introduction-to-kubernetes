@@ -11,7 +11,7 @@ The Dockerfile contains information about what you need to run your code, for in
 ### 4.1.1 Build your docker image
  
 ```
-docker build .
+docker build frontend/.
 ```
 This builds a docker images from the current folder. 
 
@@ -32,21 +32,20 @@ Then add a tag to the build
 docker tag 70f8cadfac47 cv-frontend:0.1.0
 ``` 
 
+We recommend the build name `cv-frontend`
+
 ### 4.1.3 Build and tag in one command
-It is also possible to build and tag our image in one command. This is done like this: 
+It is also possible to build and tag our image in one command. We will do this when we build the backend: 
 
 ```
-docker build -t [TAG_NAME] .
+docker build -t [TAG_NAME] backend/.
 ```
+
 We recommend tagging your project like this: `us.gcr.io/[project_name]/[build_name]:[version]`
 where you insert your *project_name*, *build_name* and *version*.
-This tagging is recommended because it will make it easier to push your application to Google Cloud.  
+We recommend the build name `cv-backend`
 
-
-We recommend these build-names: 
-1. Backend: cv-backend
-2. Frontend: cv-frontend
-
+This tagging is recommended because it will make it easier to push your application to Google Cloud.
 
 The version is useful to separate different builds from each other and to create specific versions for test or prod.
 
