@@ -17,19 +17,17 @@ Almost all of the following can be installed with `brew install`, but we recomme
   - Create a project
 6) Install Google Cloud command-line tool (gcloud). 
   - Follow the guide [here](https://cloud.google.com/sdk/downloads).
-  - Gcloud is successfully installed if you can run: 
-      ```
-      gcloud init
-      ```
-      - Choose option 1 when you are asked about the configuration.
-      - When asked about what project you want to use, chose the one you created earlier.
-      - This will open a tab in your browser where you will login with your chosen Google-account.
-      
+  - Do **all steps** in the guide until you have typed:  `gcloud init`.
+      - Authenticate in the browser when you are asked to. 
+      - Choose to create a new project. 
+      You will have to give it a name and it will be given a unique **project ID** that we will use in the rest of the workshop. 
+ 
       **After the init process is finished**
-      - Go to the Google Cloud Console in your browser and search in the search field for Google Compute Engine API.
-      - Click *enable*. 
+      - Go back to the [Google Cloud Console](https://console.cloud.google.com/) in your browser and search in the search field for *Google Compute Engine API*.
+      - Click *enable*.
       
-7) Install Kubernetes command-line tool (kubectl). Run the following command in the terminal to install: `gcloud components install kubectl`
+7) Install Kubernetes command-line tool (kubectl).
+This is installed by the following command in the terminal to install: `gcloud components install kubectl`
 8) Install maven: https://maven.apache.org/install.html
   - Check that maven is installed by typing `mvn -v` in the terminal 
 
