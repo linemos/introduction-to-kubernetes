@@ -11,14 +11,15 @@ scroll down to Compute.
 
 1. Select Container Engine and then Container clusters. Click `Create cluster`.
 2. Name your cluster `cv-cluster`.
-3. Choose a zone starting with *us-central1-a*.
+3. Choose the zone *us-central1-a*. It might take some time before you can choose a zone. Be patient :blush:
 This is useful if you want to try out some beta functionality that is 
 limited to this zone.
 4. Scroll down to and click `More`. This will expand advanced options.
 5. Find the part called **Project access**.
 6. Set **Storage** to *Full*.
 7. Set **Cloud SQL** to *Enabled*.
-8. Click *Create*. This will probably take several minutes.
+8. Click *Create*. This will probably take several minutes. You can start with Task 2.3 while you wait :simple_smile: 
+Notice also that you can view the setup progress for your cluster in the top right corner. 
 
 This will give your cluster access to Storage and the SQL instance we are going to create next.
 
@@ -34,7 +35,7 @@ Go to Google Cloud Console in your browser.
 *This process can take a while.* While you wait you can do this:
     1. In the search field in the blue header, search for Google Cloud SQL API and click enable.
     If you haven't already enabled billing, you have to do this now. 
-    2. start with the next tasks in [3.1](run-application-locally.md)
+    2. Start with the next tasks in [3.1](run-application-locally.md)
 6. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
 7. Create a user called `cvuser` and set the password to `cvapp-passord`. 
 8. Go back to *Overview* and log in using the button *Connect using Cloud Shell*. Type the password `cvapp-passord`.
