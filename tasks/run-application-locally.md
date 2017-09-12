@@ -36,7 +36,7 @@ First, we have to specify the location of our database.
 Find the instance name in the Google Cloud Console in your browser, under *SQL* in the menu on the left.
 It will be in a format like this.
 ```
-myprojectname:us-central1:cvapp-db
+[YOUR_PROJECT_ID]:us-central1:cvapp-db
 ```
 
 Replace the string 'INSERT_SQL_NAME_HERE' in the file `backend/src/main/java/com/vibbio/cvapp/AppConfig.java` with this instance name.
