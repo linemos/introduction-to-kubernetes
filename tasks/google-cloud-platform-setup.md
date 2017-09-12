@@ -33,9 +33,11 @@ Go to Google Cloud Console in your browser.
 4. Set Region to *us-central1* and zone to *us-central1-a*
 5. Click create.
 *This process can take a while.* While you wait you can do this:
-    1. In the search field in the blue header, search for Google Cloud SQL API and click enable.
+    1. Open the file [mysql/script.sql](../mysql/script.sql) anc change the values in the last 3 lines. 
+    Input your own name, and location. And your own education and work experience if you want :tada: .
+    2. In the search field in the blue header, search for Google Cloud SQL API and click enable.
     If you haven't already enabled billing, you have to do this now. 
-    2. Start with the next tasks in [3.1](run-application-locally.md)
+    3. Start with the next tasks in [3.1](run-application-locally.md) if your instance is still in creation. 
 6. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
 7. Create a user called `cvuser` and set the password to `cvapp-passord`. 
 8. Go back to *Overview* and log in using the button *Connect using Cloud Shell*. Type the password `cvapp-passord`.
@@ -47,9 +49,10 @@ Set up an external IP that we will use to connect to the frontend of your applic
 You will get a warning doing this, but it's ok, we will connect it to our service soon.
 
 **Reserve an external IP address**
+
 1) Go to *VPC Network*
 2) Select *External IP Addresses*
 3) Choose *Reserve Static Address*
 4) Choose a name for your address
-5) Set *attached to* and choose `cv-cluster`, the cluster you created in Task 2.2. 
 
+You might get a warning that this is expensive if it is not attached to a cluster, but don't worry, you should still not be charged anything during the workshop hours.  
