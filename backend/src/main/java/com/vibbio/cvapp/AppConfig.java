@@ -6,9 +6,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 public class AppConfig extends ResourceConfig {
     public AppConfig() {
-        String url = "jdbc:mysql://google/cvdatabase?cloudSqlInstance=INSERT_SQL_NAME_HERE&socketFactory=com.google.cloud.sql.mysql.SocketFactory";
-        String username = "cvapp";
-        String password = "cvapp-passord";
+        String url = "jdbc:mysql://google/cvdatabase?cloudSqlInstance=vibbioexpress:us-central1:mycvapp&socketFactory=com.google.cloud.sql.mysql.SocketFactory";
+        String username = "cvuser";
+        String password = ""; // todo insert MYSQL password here
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource(url, username, password);
         driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         JdbcTemplate jdbcTemplate = new JdbcTemplate(driverManagerDataSource);

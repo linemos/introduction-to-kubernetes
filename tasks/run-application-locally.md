@@ -53,6 +53,11 @@ mvn exec:java
 
 Make sure there are no errors from Maven.
 
+### 3.1.3 Check that your application works
+
+Open the browser and go to [localhost:3000](http://localhost:3000) and view the application!
+Make sure the data is correctly displayed. 
+
 ## 3.4 Add more info to the database
 
 1. Go back to the Google Cloud Console in your browser, and visit the SQL page.
