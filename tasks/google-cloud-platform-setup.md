@@ -30,15 +30,15 @@ Go to Google Cloud Console in your browser.
 2. Chose a MySQL-database, second generation.
 3. Name the instance `cvapp-db` and set the root password to `cvapp-passord.
 4. Set Region to *us-central1* and zone to *us-central1-a*
-4. Click create.
+5. Click create.
 *This process can take a while.* While you wait you can do this:
-    1. In the search field in the blue header, search for  Google Cloud SQL API and click enable
-        1. You must also enable Billing in this step.
+    1. In the search field in the blue header, search for Google Cloud SQL API and click enable.
+    If you haven't already enabled billing, you have to do this now. 
     2. start with the next tasks in [3.1](run-application-locally.md)
-5. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
-6. Create a user called `cvuser` and set the password to `cvapp-passord`. 
-7. Go back to *Overview* and log in using the button *Connect using Cloud Shell*. Type the password `cvapp-passord`.
-8. Paste the lines in the file [mysql/script.sql](../mysql/script.sql) into the shell to create the database and its tables.
+6. When the database is created, click on link *cvapp-db* and click on the tab *Users*.
+7. Create a user called `cvuser` and set the password to `cvapp-passord`. 
+8. Go back to *Overview* and log in using the button *Connect using Cloud Shell*. Type the password `cvapp-passord`.
+9. Paste the lines in the file [mysql/script.sql](../mysql/script.sql) into the shell to create the database and its tables.
 
 ## 2.4 Setup an external IP
 We haven't deployed our application but we will need an IP address to reach our application later. 

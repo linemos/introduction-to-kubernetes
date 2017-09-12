@@ -24,6 +24,7 @@ Almost all of the following can be installed with `brew install`, but we recomme
  
       **After the init process is finished**
       - Go back to the [Google Cloud Console](https://console.cloud.google.com/) in your browser and search in the search field for *Google Compute Engine API*.
+      - You will be asked to enable billing at this point. Choose your billing account and click enable for this project.
       - Click *enable*.
       
 7) Install Kubernetes command-line tool (kubectl).
