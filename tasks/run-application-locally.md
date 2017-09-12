@@ -16,10 +16,10 @@ Since our backend runs on `localhost:5000` (you can view this in the terminal wh
 we should have this inside our *package.json*.
 
 The frontend should automatically open a browser window where you can view our application.
-Check that all data is correctly viewed. It might take som time to load the data into our application,
-because the data is loaded from the database in the cloud (from Task 2.3).
+Check that all data is correctly viewed. If you haven't completed setting up your SQL instance, you will not view any data. 
 
 Go back to whe Google Cloud SQL view in your browser to see if the SQL instance is finished with creation.
+Continue on the exercises from [Task 2.3.6](/tasks/google-cloud-platform-setup.md) (if you haven't completed them).
 
 ## 3.2 Provide credentials for local integration with Google Cloud SQL
 We need to provide our machine with credentials for Google Cloud in order to run our application. Run this command:
