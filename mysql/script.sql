@@ -28,6 +28,6 @@ CREATE TABLE education(
   PRIMARY KEY (id)
 );
 
-INSERT INTO personal (name, location) VALUES ('Elliot Alderson', 'New York City');
+INSERT INTO personal (full_name, location) VALUES ('Elliot Alderson', 'New York City');
 INSERT INTO work (place, comment, from_year, to_year) VALUES ('Allsafe Cybersecurity','Cybersecurity Engineer','2010','2014');
 INSERT INTO education (place, comment, from_year, to_year) VALUES ('Selftaught','H4ck3r','2005','2010');

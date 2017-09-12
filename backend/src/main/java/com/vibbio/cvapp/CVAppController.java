@@ -29,7 +29,7 @@ public class CVAppController {
         String query = "SELECT * from personal";
 
         PersonalInfo personalInfo=  jdbcTemplate.queryForObject(query, (resultSet, i) -> {
-            return new PersonalInfo(resultSet.getString("name"), resultSet.getString("location"));
+            return new PersonalInfo(resultSet.getString("full_name"), resultSet.getString("location"));
         });
 
         return Response.ok(mapper.writeValueAsString(personalInfo)).build();
