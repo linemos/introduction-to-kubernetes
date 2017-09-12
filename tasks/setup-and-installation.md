@@ -12,7 +12,20 @@ If you are using Mac, we recommend installing [brew](https://brew.sh/). This wil
   - Go to: https://console.cloud.google.com 
   - Sign up. You will have to register a payment method to complete the sign up. The first 100 days are free, so you should not be charged anything for your account.
   - Create a project
-- Install Google Cloud command-line tool (gcloud): https://cloud.google.com/sdk/downloads
+- Install Google Cloud command-line tool (gcloud). 
+  - Follow the guide [here](https://cloud.google.com/sdk/downloads).
+  - Gcloud is successfully installed if you can run: 
+      ```
+      gcloud init
+      ```
+      1. Choose option 1 when you are asked about the configuration.
+      2. When asked about what project you want to use, chose the one you created earlier.
+      3. This will open a tab in your browser where you will login with your chosen Google-account.
+      
+      **After the init process is finished**
+      1. Go to the Google Cloud Console in your browser and search in the search field for Google Compute Engine API.
+      2. Click enable 
+      
 - Install Kubernetes command-line tool (kubectl). Run the following command in the terminal to install: `gcloud components install kubectl`
 - Install maven: https://maven.apache.org/install.html
   - Check that maven is installed by typing `mvn -v` in the terminal 
@@ -22,10 +35,10 @@ We recommend downloading and installing [Git](https://git-scm.com/downloads), bu
 - Clone this project :
 
 ```
-git clone git@github.com:vibbio/introduction-to-kubernetes.git
+git clone https://github.com/vibbio/introduction-to-kubernetes.git
 ```
 
-Or click Download. 
+**If you don't want to use git**, you can [download the zip](https://github.com/vibbio/introduction-to-kubernetes/archive/master.zip).
 
 
 ## 1.2 Start the environment
@@ -47,18 +60,7 @@ Check that Docker is running by typing `docker info` in the terminal.
 
 ### 1.2.2 Start using gcloud
 
-Start using gcloud by typing: 
 
-```
-gcloud init
-```
-1. Choose option 1 when you are asked about the configuration.
-2. When asked about what project you want to use, chose the one you created earlier.
-3. This will open a tab in your browser where you will login with your chosen Google-account.
-
-**After the init process is finished**
-1. Go to the Google Cloud Console in your browser and search in the search field for Google Compute Engine API.
-2. Click enable 
 
 **Authentication only**
 

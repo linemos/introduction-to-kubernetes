@@ -6,7 +6,7 @@ Our frontend is installed and run by Node Package Manager (npm).
 
 ### Start the application
 This is how you can start your application locally.
- 1. Go into the folder/client from a different terminal: `cd /frontend/client`
+ 1. Go into the folder/client from a different terminal: `cd frontend/client`
  2. Install all packages with `npm i `.
  This will download all packages and store them in a folder called `node_modules`.
  3. Start the application by typing `npm start`.
