@@ -101,7 +101,7 @@ gcloud compute addresses list
 
 2. Copy the IP address and paste it in the field **loadBalancerIp: ** in the file *kubernetes-deployment/frontend/service.yaml*.
 3. Open the file *kubernetes-deployment/frontend/deployment.yaml*
-4. Insert your docker frontend tag in the field **image:**
+4. Insert your docker frontend tag in the field **image:**. Remember to also specify the version.
 5. Deploy our frontend to Google Cloud Container Engine:
 
 ```
